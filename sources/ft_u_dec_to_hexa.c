@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_u_dec_to_hexa.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hprudhom <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/21 12:07:59 by hprudhom          #+#    #+#             */
+/*   Updated: 2021/01/21 12:08:13 by hprudhom         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 static char	*treat_base(unsigned long long dec_save, int base,
@@ -35,6 +47,5 @@ char		*ft_u_dec_to_hexa(unsigned long long dec, int base)
 		return (0);
 	hexa[count] = '\0';
 	hexa = treat_base(dec_save, base, hexa, count);
-	printf("hexa = %s\n", hexa);
 	return (hexa);
 }

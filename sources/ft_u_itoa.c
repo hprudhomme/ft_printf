@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_u_itoa.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hprudhom <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/21 12:09:53 by hprudhom          #+#    #+#             */
+/*   Updated: 2021/01/21 12:10:13 by hprudhom         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 static int		ft_ui_length(long n)
@@ -57,11 +69,9 @@ char			*ft_u_itoa(unsigned int n)
 
 	nbr = n;
 	len = ft_ui_length(nbr);
-	printf("len = %d\n", len);
 	str_ui = 0;
 	isneg = 0;
 	if (!(str_ui = ft_ui_to_str(str_ui, nbr, len, isneg)))
 		return (0);
-	printf("str_ui = %s\n", str_ui);
 	return (str_ui);
 }

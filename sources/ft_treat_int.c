@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treat_int.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hprudhom <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/21 12:01:59 by hprudhom          #+#    #+#             */
+/*   Updated: 2021/01/21 12:03:14 by hprudhom         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 static int	ft_in_put_part_int(char *i_to_str, int save_i, t_flags flags)
@@ -28,7 +40,8 @@ static int	ft_put_part_int(char *i_to_str, int save_i, t_flags flags)
 		char_count += ft_treat_width(flags.width, 0, 0);
 	}
 	else
-		char_count += ft_treat_width(flags.width, ft_strlen(i_to_str), flags.zero);
+		char_count += ft_treat_width(flags.width,
+				ft_strlen(i_to_str), flags.zero);
 	if (flags.minus == 0)
 		char_count += ft_in_put_part_int(i_to_str, save_i, flags);
 	return (char_count);

@@ -1,6 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treat_flags.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hprudhom <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/21 12:04:55 by hprudhom          #+#    #+#             */
+/*   Updated: 2021/01/21 12:06:23 by hprudhom         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
-int	        ft_flag_dot(const char *save, int start, t_flags *flags, va_list args)
+int			ft_flag_dot(const char *save, int start,
+				t_flags *flags, va_list args)
 {
 	int i;
 

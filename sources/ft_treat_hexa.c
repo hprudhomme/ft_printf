@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_treat_hexa.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hprudhom <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/01/21 12:08:57 by hprudhom          #+#    #+#             */
+/*   Updated: 2021/01/21 12:09:10 by hprudhom         ###   ########lyon.fr   */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/ft_printf.h"
 
 static int		ft_in_put_part_hexa(char *hexa, t_flags flags)
@@ -41,14 +53,12 @@ int				ft_treat_hexa(unsigned int ui, int lower, t_flags flags)
 	char_count = 0;
 	ui = (unsigned int)(4294967295 + 1
 				+ ui);
-	printf(" ui = %u\n", ui);
 	if (flags.dot == 0 && ui == 0)
 	{
 		char_count += ft_treat_width(flags.width, 0, 0);
 		return (char_count);
 	}
 	hexa = ft_u_dec_to_hexa((unsigned long long)ui, 16);
-	printf("hexa = %s\n", hexa);
 	if (lower == 1)
 		hexa = ft_str_tolower(hexa);
 	char_count += ft_put_part_hexa(hexa, flags);
