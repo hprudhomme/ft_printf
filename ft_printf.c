@@ -106,15 +106,15 @@ int			ft_printf(const char *input, ...)
 	return (char_count);
 }
 
-int main()
-{   
-	int x = 0;
-	int y = 0;
+// int main()
+// {   
+// 	int x = 0;
+// 	int y = 0;
 
-	x = ft_printf(" %+-03.d ", 0);
-	printf("\n");
-	y = printf(" %+-03.d ", 0);
-	printf("\n");
-	printf("x = %d & y = %d\n", x, y);
-	return 0;
-}
+// 	x = ft_printf("% -03d", 0);
+// 	printf("\n");
+// 	y = printf("% -03d", 0);
+// 	printf("\n");
+// 	printf("x = %d & y = %d\n", x, y);
+// 	return 0;
+// }

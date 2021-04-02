@@ -27,8 +27,6 @@ int			ft_flag_dot(const char *save, int start,
 	}
 	else
 	{	
-		if (!ft_isdigit(save[i]))
-			return i;
 		flags->dot = 0;
 		while (ft_isdigit(save[i]))
 			flags->dot = (flags->dot * 10) + (save[i++] - '0');

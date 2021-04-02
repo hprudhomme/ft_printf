@@ -74,7 +74,6 @@ static int	ft_put_part_int(char *i_to_str, int save_i, t_flags flags)
 
 int			ft_treat_int(int i, t_flags flags)
 {
-	printf("buzz\n");
 	char	*i_to_str;
 	int		save_i;
 	int		char_count;
@@ -82,8 +81,12 @@ int			ft_treat_int(int i, t_flags flags)
 	save_i = i;
 	char_count = 0;
 	if (flags.dot == 0 && i == 0)
-	{
-		printf("aaaa\n");
+	{	
+		if (flags.plus)
+		{
+			char_count += ft_putchar('+');
+			flags.width--;
+		}
 		char_count += ft_treat_width(flags.width, 0, 0);
 		return (char_count);
 	}
