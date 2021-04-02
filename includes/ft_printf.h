@@ -25,6 +25,9 @@ typedef	struct		s_flags
 	int				zero;
 	int				dot;
 	int				star;
+	int				space;
+	int				hashtag;
+	int				plus;
 }					t_flags;
 
 int					ft_printf(const char *str, ...);
@@ -51,5 +54,6 @@ char				*ft_str_tolower(char *str);
 t_flags				ft_flag_minus(t_flags flags);
 t_flags				ft_flag_width(va_list args, t_flags flags);
 t_flags				ft_flag_digit(char c, t_flags flags);
+t_flags				ft_flag_plus(t_flags flags);
 
 #endif

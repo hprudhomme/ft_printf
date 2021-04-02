@@ -19,13 +19,16 @@ int			ft_flag_dot(const char *save, int start,
 
 	i = start;
 	i++;
+	flags->zero = 0;
 	if (save[i] == '*')
 	{
 		flags->dot = va_arg(args, int);
 		i++;
 	}
 	else
-	{
+	{	
+		if (!ft_isdigit(save[i]))
+			return i;
 		flags->dot = 0;
 		while (ft_isdigit(save[i]))
 			flags->dot = (flags->dot * 10) + (save[i++] - '0');
@@ -58,4 +61,12 @@ t_flags		ft_flag_digit(char c, t_flags flags)
 		flags.width = 0;
 	flags.width = (flags.width * 10) + (c - '0');
 	return (flags);
+}
+
+t_flags         ft_flag_plus(t_flags flags)
+{
+    if (flags.space == 1)
+        flags.space = 0;
+    flags.plus = 1;
+    return (flags);
 }

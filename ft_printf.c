@@ -22,24 +22,34 @@ t_flags		ft_init_flags(void)
 	flags.type = 0;
 	flags.width = 0;
 	flags.zero = 0;
+	flags.space = 0;
+	flags.hashtag = 0;
+	flags.plus = 0;
 	return (flags);
 }
 
 int			ft_flag_parse(const char *save, int i, t_flags *flags, va_list args)
 {
+
 	while (save[i])
-	{
+	{	
 		if (!ft_isdigit(save[i]) && !ft_is_in_type_list(save[i]) &&
 				!ft_is_in_flags_list(save[i]))
 			break ;
 		if (save[i] == '0' && flags->width == 0 && flags->minus == 0)
 			flags->zero = 1;
+		if (save[i] == ' ' && flags->plus == 0 && flags->width == 0)
+            flags->space = 1;
+        if (save[i] == '+')
+            *flags = ft_flag_plus(*flags);
 		if (save[i] == '.')
 			i = ft_flag_dot(save, i, flags, args);
 		if (save[i] == '-')
 			*flags = ft_flag_minus(*flags);
 		if (save[i] == '*')
 			*flags = ft_flag_width(args, *flags);
+		if (save[i] == '#')
+			flags->hashtag = 1;
 		if (ft_isdigit(save[i]))
 			*flags = ft_flag_digit(save[i], *flags);
 		if (ft_is_in_type_list(save[i]))
@@ -53,7 +63,7 @@ int			ft_flag_parse(const char *save, int i, t_flags *flags, va_list args)
 }
 
 int			ft_save_treat(const char *save, va_list args)
-{
+{	
 	int		char_count;
 	int		i;
 	t_flags	flags;
@@ -75,6 +85,7 @@ int			ft_save_treat(const char *save, va_list args)
 		}
 		else if (save[i] != '%')
 			char_count += ft_putchar(save[i]);
+			
 		i++;
 	}
 	return (char_count);
@@ -95,15 +106,15 @@ int			ft_printf(const char *input, ...)
 	return (char_count);
 }
 
-// int main()
-// {   
-// 	int x = 0;
-// 	int y = 0;
+int main()
+{   
+	int x = 0;
+	int y = 0;
 
-// 	x = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, 2147483647, 21, -2147483648);
-// 	printf("\n");
-// 	y = printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, 2147483647, 21, -2147483648);
-// 	printf("\n");
-// 	printf("x = %d & y = %d\n", x, y);
-// 	return 0;
-// }
+	x = ft_printf(" %+-03.d ", 0);
+	printf("\n");
+	y = printf(" %+-03.d ", 0);
+	printf("\n");
+	printf("x = %d & y = %d\n", x, y);
+	return 0;
+}

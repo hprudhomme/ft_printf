@@ -28,6 +28,11 @@ static int		ft_put_part_hexa(char *hexa, t_flags flags)
 	int char_count;
 
 	char_count = 0;
+	if (flags.hashtag == 1 && hexa[0] != '0')
+	{
+			char_count += (flags.type == 'x') ? ft_putstr("0x", 2) : ft_putstr("0X", 2);
+			flags.width -= 2;
+	}
 	if (flags.minus == 1)
 		char_count += ft_in_put_part_hexa(hexa, flags);
 	if (flags.dot >= 0 && (size_t)flags.dot < ft_strlen(hexa))

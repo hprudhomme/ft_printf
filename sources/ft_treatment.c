@@ -20,7 +20,7 @@ int		ft_is_in_type_list(int c)
 
 int		ft_is_in_flags_list(int c)
 {
-	return ((c == '-') || (c == ' ') || (c == '0') || (c == '.') || (c == '*'));
+	return ((c == '-') || (c == ' ') || (c == '0') || (c == '.') || (c == '*') || (c == '#') || (c == '+'));
 }
 
 int		ft_treatment(int c, t_flags flags, va_list args)
